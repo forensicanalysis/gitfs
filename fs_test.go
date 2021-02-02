@@ -1,11 +1,37 @@
 package gitfs
 
 import (
+	"fmt"
 	"io/fs"
 	"reflect"
 	"sort"
 	"testing"
+	"testing/fstest"
 )
+
+func TestFS(t *testing.T) {
+	fsys, err := New("https://github.com/forensicanalysis/fslib")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	fs.WalkDir(fsys, ".github", func(path string, d fs.DirEntry, err error) error {
+		fmt.Println("path", path)
+		return err
+	})
+
+	var names []string
+	entries, err := fs.ReadDir(fsys, ".github")
+	for _, entry := range entries {
+		names = append(names, entry.Name())
+	}
+	fmt.Println(names)
+
+	err = fstest.TestFS(fsys, "LICENSE")
+	if err != nil {
+		t.Fatal(err)
+	}
+}
 
 func TestNew(t *testing.T) {
 	want := []string{
