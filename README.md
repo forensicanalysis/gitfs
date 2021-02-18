@@ -1,8 +1,7 @@
 <h1 align="center">gitfs</h1>
 
 <p  align="center">
- <a href="https://codecov.io/gh/forensicanalysis/gitfs"><img src="https://codecov.io/gh/forensicanalysis/gitfs/branch/master/graph/badge.svg" alt="coverage" /></a>
- <a href="https://godocs.io/github.com/forensicanalysis/gitfs"><img src="https://godocs.io/github.com/forensicanalysis/gitfs?status.svg" alt="doc" /></a>
+  <a href="https://godocs.io/github.com/forensicanalysis/gitfs"><img src="https://godocs.io/github.com/forensicanalysis/gitfs?status.svg" alt="doc" /></a>
 </p>
 
 Read a remote git repository as [io/fs.FS](https://golang.org/pkg/io/fs/#FS).
