@@ -1,14 +1,11 @@
 <h1 align="center">gitfs</h1>
 
 <p  align="center">
- <a href="https://github.com/forensicanalysis/gitfs/actions"><img src="https://github.com/forensicanalysis/gitfs/workflows/CI/badge.svg" alt="build" /></a>
- <a href="https://goreportcard.com/report/github.com/forensicanalysis/gitfs"><img src="https://goreportcard.com/badge/github.com/forensicanalysis/gitfs" alt="report" /></a>
+ <a href="https://codecov.io/gh/forensicanalysis/gitfs"><img src="https://codecov.io/gh/forensicanalysis/gitfs/branch/master/graph/badge.svg" alt="coverage" /></a>
  <a href="https://godocs.io/github.com/forensicanalysis/gitfs"><img src="https://godocs.io/github.com/forensicanalysis/gitfs?status.svg" alt="doc" /></a>
 </p>
 
-> Read a remote git repository using Go io/fs abstraction
-
-⚠️ This Go package requires [io/fs](https://tip.golang.org/pkg/io/fs) which is part of Go 1.16 (Release in February 2021).
+Read a remote git repository as [io/fs.FS](https://golang.org/pkg/io/fs/#FS).
 
 ## Example
 
