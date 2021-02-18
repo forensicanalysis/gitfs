@@ -28,6 +28,9 @@ func New(url string) (*GitFS, error) {
 }
 
 func (g *GitFS) Open(name string) (fs.File, error) {
+	if !fs.ValidPath(name) {
+		return nil, fmt.Errorf("invalid path: %s", name)
+	}
 	info, err := g.Stat(name)
 	if err != nil {
 		return nil, err
