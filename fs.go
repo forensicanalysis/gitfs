@@ -2,12 +2,14 @@ package gitfs
 
 import (
 	"fmt"
+	"io/fs"
+	"sort"
+	"strings"
+
 	"github.com/go-git/go-billy/v5"
 	"github.com/go-git/go-billy/v5/memfs"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/storage/memory"
-	"io/fs"
-	"sort"
 )
 
 type GitFS struct {
@@ -28,7 +30,7 @@ func New(url string) (*GitFS, error) {
 }
 
 func (g *GitFS) Open(name string) (fs.File, error) {
-	if !fs.ValidPath(name) {
+	if !fs.ValidPath(name) || strings.Contains(name, `\`) {
 		return nil, fmt.Errorf("invalid path: %s", name)
 	}
 	info, err := g.Stat(name)
@@ -43,7 +45,7 @@ func (g *GitFS) Open(name string) (fs.File, error) {
 }
 
 func (g *GitFS) Stat(name string) (fs.FileInfo, error) {
-	if !fs.ValidPath(name) {
+	if !fs.ValidPath(name) || strings.Contains(name, `\`) {
 		return nil, fmt.Errorf("invalid path: %s", name)
 	}
 	info, err := g.fs.Lstat(name)
@@ -51,7 +53,7 @@ func (g *GitFS) Stat(name string) (fs.FileInfo, error) {
 }
 
 func (g *GitFS) ReadDir(name string) (entries []fs.DirEntry, err error) {
-	if !fs.ValidPath(name) {
+	if !fs.ValidPath(name) || strings.Contains(name, `\`) {
 		return nil, fmt.Errorf("invalid path: %s", name)
 	}
 	infos, err := g.fs.ReadDir(name)
