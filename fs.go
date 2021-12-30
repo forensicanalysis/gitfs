@@ -17,7 +17,11 @@ type GitFS struct {
 }
 
 func New(url string) (*GitFS, error) {
-	repository, err := git.Clone(memory.NewStorage(), memfs.New(), &git.CloneOptions{URL: url})
+	return NewWithOptions(&git.CloneOptions{URL: url})
+}
+
+func NewWithOptions(options *git.CloneOptions) (*GitFS, error) {
+	repository, err := git.Clone(memory.NewStorage(), memfs.New(), options)
 	if err != nil {
 		return nil, err
 	}
