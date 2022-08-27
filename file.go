@@ -1,15 +1,16 @@
 package gitfs
 
 import (
-	"github.com/go-git/go-billy/v5"
 	"io"
 	"io/fs"
+
+	"github.com/go-git/go-billy/v5"
 )
 
 type GitFile struct {
-	file billy.File
-	path string
-	fs   *GitFS
+	file      billy.File
+	path      string
+	fs        *GitFS
 	dirOffset int
 }
 
