@@ -13,7 +13,7 @@ import (
 )
 
 type GitFS struct {
-	fs billy.Filesystem
+	FS billy.Filesystem
 }
 
 func New(url string) (*GitFS, error) {
@@ -44,7 +44,7 @@ func (g *GitFS) Open(name string) (fs.File, error) {
 	if name == "." || info.IsDir() {
 		return &PseudoDir{fs: g, path: name}, nil
 	}
-	file, err := g.fs.Open(name)
+	file, err := g.FS.Open(name)
 	return &GitFile{path: name, fs: g, file: file}, err
 }
 
@@ -52,7 +52,7 @@ func (g *GitFS) Stat(name string) (fs.FileInfo, error) {
 	if !fs.ValidPath(name) || strings.Contains(name, `\`) {
 		return nil, fmt.Errorf("invalid path: %s", name)
 	}
-	info, err := g.fs.Lstat(name)
+	info, err := g.FS.Lstat(name)
 	return &GitEntry{info: info}, err
 }
 
@@ -60,7 +60,7 @@ func (g *GitFS) ReadDir(name string) (entries []fs.DirEntry, err error) {
 	if !fs.ValidPath(name) || strings.Contains(name, `\`) {
 		return nil, fmt.Errorf("invalid path: %s", name)
 	}
-	infos, err := g.fs.ReadDir(name)
+	infos, err := g.FS.ReadDir(name)
 	if err != nil {
 		return nil, err
 	}
