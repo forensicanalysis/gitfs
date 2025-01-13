@@ -9,6 +9,8 @@
 Read a remote git repository as [io/fs.FS](https://golang.org/pkg/io/fs/#FS).
 
 ## Example
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fforensicanalysis%2Fgitfs.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fforensicanalysis%2Fgitfs?ref=badge_shield)
+
 
 ``` go
 func main() {
@@ -23,3 +25,7 @@ func main() {
 	// Output: Bolt
 }
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fforensicanalysis%2Fgitfs.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fforensicanalysis%2Fgitfs?ref=badge_large)
