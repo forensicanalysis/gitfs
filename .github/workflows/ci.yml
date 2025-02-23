@@ -5,7 +5,16 @@ on:
   pull_request:
 
 jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: { go-version: '1.23' }
 
+      - uses: golangci/golangci-lint-action@v6
+        with: { version: v1.64 }
   gitfs:
     name: gitfs
     runs-on: ${{ matrix.os }}
@@ -13,15 +22,11 @@ jobs:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
     steps:
-      - name: Setup go 1.19
-        uses: actions/setup-go@v5
-        with:
-          go-version: 1.19.0
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: { go-version: '1.23' }
 
-      - name: Test
-        run: go test -race -coverprofile=coverage.txt -covermode=atomic
+      - run: go test -race -coverprofile=coverage.txt -covermode=atomic
         shell: bash
       - name: Upload coverage
         env:

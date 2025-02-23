@@ -1,6 +1,6 @@
 module github.com/forensicanalysis/gitfs
 
-go 1.19
+go 1.23
 
 require (
 	github.com/go-git/go-billy/v5 v5.6.2
