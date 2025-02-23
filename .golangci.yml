@@ -1,0 +1,30 @@
+run:
+  go: "1.23"
+  timeout: 5m
+linters:
+  enable-all: true
+  disable:
+    - depguard
+    - err113
+    - errcheck
+    - exhaustruct
+    - gochecknoglobals
+    - gochecknoinits
+    - gosmopolitan
+    - ireturn
+    - mnd
+    - nlreturn
+    - nonamedreturns
+    - perfsprint
+    - prealloc
+    - tagliatelle
+    - tenv
+    - testpackage
+    - varnamelen
+    - wrapcheck
+linters-settings:
+  gci:
+    sections:
+      - standard
+      - default
+      - prefix(github.com/forensicanalysis/gitfs)

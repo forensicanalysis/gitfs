@@ -12,15 +12,19 @@ func (g *GitEntry) Name() string {
 	if g.info.Name() == "" {
 		panic("empty name")
 	}
+
 	if g.info.Name() == "/" {
 		return "."
 	}
+
 	return strings.Trim(g.info.Name(), "/")
 }
+
 func (g *GitEntry) Mode() fs.FileMode {
 	if g.IsDir() {
 		return fs.ModeDir
 	}
+
 	return 0
 }
 
