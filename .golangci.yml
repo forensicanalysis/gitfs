@@ -1,8 +1,9 @@
+version: 2
 run:
   go: "1.23"
   timeout: 5m
 linters:
-  enable-all: true
+  default: all
   disable:
     - depguard
     - err113
