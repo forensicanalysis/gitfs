@@ -14,17 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-go@v6
-        with: { go-version: '1.23' }
+        with: { go-version: '1.25' }
 
       - uses: golangci/golangci-lint-action@v9
-        with: { version: v2.1.6 }
+        with: { version: v2.6.2 }
   gitfs:
     name: gitfs
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
-        go-version: [ '1.23', '1.24' ]
+        go-version: [ '1.24', '1.25' ]
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-go@v6

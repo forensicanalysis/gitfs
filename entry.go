@@ -32,7 +32,7 @@ func (g *GitEntry) Size() int64 { return g.info.Size() }
 
 func (g *GitEntry) ModTime() time.Time { return time.Time{} }
 
-func (g *GitEntry) Sys() interface{} { return nil }
+func (g *GitEntry) Sys() any { return nil }
 
 func (g *GitEntry) IsDir() bool { return g.info.IsDir() }
 
