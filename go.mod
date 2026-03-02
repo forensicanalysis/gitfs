@@ -3,8 +3,8 @@ module github.com/forensicanalysis/gitfs
 go 1.24.0
 
 require (
-	github.com/go-git/go-billy/v5 v5.7.0
-	github.com/go-git/go-git/v5 v5.16.5
+	github.com/go-git/go-billy/v5 v5.8.0
+	github.com/go-git/go-git/v5 v5.17.0
 )
 
 require (
