@@ -4,7 +4,7 @@ go 1.24.0
 
 require (
 	github.com/go-git/go-billy/v5 v5.8.0
-	github.com/go-git/go-git/v5 v5.17.0
+	github.com/go-git/go-git/v5 v5.17.2
 )
 
 require (
