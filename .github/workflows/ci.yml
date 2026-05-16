@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-go@v6
-        with: { go-version: '1.25' }
+        with: { go-version: '1.26' }
 
       - uses: golangci/golangci-lint-action@v9
         with: { version: v2.6.2 }
@@ -24,7 +24,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
-        go-version: [ '1.24', '1.25' ]
+        go-version: [ '1.25', '1.26' ]
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-go@v6
